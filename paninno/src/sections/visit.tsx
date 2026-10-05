@@ -1,10 +1,8 @@
 import { Navigation, Phone } from "lucide-react";
+import { MapEmbed } from "@/components/map-embed";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/ui/section";
-import { fullAddress, site, telHref } from "@/lib/site";
-
-const mapsSearch = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.contact.mapsQuery)}`;
-const mapsEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(site.contact.mapsQuery)}&z=16&output=embed`;
+import { fullAddress, mapsEmbed, mapsSearch, site, telHref } from "@/lib/site";
 
 export function Visit() {
   return (
@@ -45,13 +43,7 @@ export function Visit() {
         </div>
 
         <div className="lg:col-span-7">
-          <iframe
-            title={`Mapa: ${site.name}, ${fullAddress}`}
-            src={mapsEmbed}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="aspect-[4/3] w-full border border-line bg-surface grayscale-[0.3] lg:aspect-auto lg:h-full lg:min-h-[28rem]"
-          />
+          <MapEmbed title={`Mapa: ${site.name}, ${fullAddress}`} src={mapsEmbed} />
         </div>
       </div>
     </Section>

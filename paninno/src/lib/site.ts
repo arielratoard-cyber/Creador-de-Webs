@@ -11,14 +11,16 @@ export const site = {
   url: "https://paninno.es", // TODO: production URL
   locale: "es_ES",
 
-  primaryCta: { label: "Pedir para llevar", href: "#pedir" },
-  secondaryCta: { label: "Ver la carta", href: "#carta" },
+  // Absolute "/#…" hrefs so links also work from the legal and contact pages.
+  primaryCta: { label: "Pedir para llevar", href: "/#pedir" },
+  secondaryCta: { label: "Ver la carta", href: "/#carta" },
 
   nav: [
-    { label: "Carta", href: "#carta" },
-    { label: "Nuestro pan", href: "#pan" },
-    { label: "Cómo pedir", href: "#pedir" },
-    { label: "Dónde estamos", href: "#visitanos" },
+    { label: "Carta", href: "/#carta" },
+    { label: "Nuestro pan", href: "/#pan" },
+    { label: "Cómo pedir", href: "/#pedir" },
+    { label: "Dónde estamos", href: "/#visitanos" },
+    { label: "Contacto", href: "/contacto" },
   ],
 
   contact: {
@@ -38,11 +40,67 @@ export const site = {
     { days: "Sábado – Domingo", time: "12:30 – 23:00" },
   ],
 
+  // Data required by Spanish law (LSSI-CE art. 10, RGPD). TODO: fill in with the real company data.
+  legal: {
+    owner: "Paninno S.L.", // TODO: razón social o nombre del titular
+    taxId: "B00000000", // TODO: NIF/CIF
+    registry: "Registro Mercantil de Barcelona, tomo 0000, folio 00, hoja B-000000", // TODO
+    lastUpdated: "5 de octubre de 2026",
+  },
+
   social: [
     { label: "Instagram", href: "https://instagram.com/" }, // TODO: real profile
     { label: "Glovo", href: "https://glovoapp.com/" }, // TODO: real store link or remove
   ],
 } as const;
+
+export type Photo = {
+  /** Path in /public (e.g. "/images/hero-panino.jpg") or an allowed remote URL. Empty → placeholder. */
+  src: string;
+  alt: string;
+  /** What the photo should show; used by the placeholder until `src` is set. */
+  brief: string;
+  /** CSS object-position, e.g. "center 30%". */
+  position?: string;
+  /** Author / licence, required for CC BY photos (e.g. "Foto: Nombre, CC BY-SA 4.0"). */
+  credit?: string;
+};
+
+// TODO: add the photos (own photos or public-domain/CC0) and fill `src`.
+export const photos = {
+  hero: {
+    src: "",
+    alt: "Panino de mortadela con pistacho y stracciatella, abierto sobre papel",
+    brief: "Panino estrella abierto, mortadela y pistacho, luz cálida, vertical 4:5",
+  },
+  focaccia: {
+    src: "",
+    alt: "Bandeja de focaccia genovesa recién horneada con romero",
+    brief: "Bandeja de focaccia recién salida del horno, con romero, horizontal 3:2",
+  },
+  counter: {
+    src: "",
+    alt: "Mostrador de Paninno con focacce y embutidos italianos",
+    brief: "Mostrador con focacce y embutidos colgados, horizontal",
+  },
+  slicing: {
+    src: "",
+    alt: "Manos cortando mortadela en lonchas finas",
+    brief: "Manos cortando mortadela, horizontal 4:3",
+  },
+  bar: {
+    src: "",
+    alt: "Clientes comiendo panini en la barra",
+    brief: "Clientes en la barra o terraza, horizontal 4:3",
+  },
+} satisfies Record<string, Photo>;
+
+export const legalLinks = [
+  { label: "Aviso legal", href: "/aviso-legal" },
+  { label: "Privacidad", href: "/privacidad" },
+  { label: "Cookies", href: "/cookies" },
+  { label: "Términos y condiciones", href: "/terminos" },
+] as const;
 
 export type MenuItem = {
   name: string;
@@ -182,3 +240,6 @@ export function whatsappHref(message = "¡Ciao! Quería encargar para llevar:") 
 }
 
 export const fullAddress = `${site.contact.street}, ${site.contact.postalCode} ${site.contact.city}`;
+
+export const mapsSearch = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.contact.mapsQuery)}`;
+export const mapsEmbed = `https://maps.google.com/maps?q=${encodeURIComponent(site.contact.mapsQuery)}&z=16&output=embed`;

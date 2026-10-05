@@ -5,7 +5,7 @@ import { Container } from "./container";
 const tones = {
   default: "bg-background text-foreground",
   surface: "bg-surface text-foreground",
-  inverted: "bg-foreground text-background",
+  inverted: "bg-deep text-foreground",
 } as const;
 
 type SectionProps = Omit<ComponentProps<"section">, "title"> & {

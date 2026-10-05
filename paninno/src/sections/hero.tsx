@@ -1,8 +1,8 @@
 import { ArrowRight, Clock, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Container } from "@/components/ui/container";
-import { ImagePlaceholder } from "@/components/ui/image-placeholder";
-import { fullAddress, site } from "@/lib/site";
+import { Photo } from "@/components/ui/photo";
+import { fullAddress, photos, site } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -35,11 +35,13 @@ export function Hero() {
         </div>
 
         <div className="relative lg:col-span-5">
-          {/* Solid crust-coloured block offset behind the photo: gives the hero depth without effects. */}
-          <div aria-hidden className="absolute -right-5 top-8 -bottom-8 left-10 bg-accent sm:-right-8 lg:-right-16" />
-          <ImagePlaceholder
-            label="Panino estrella abierto, mortadela y pistacho, luz natural, vertical 4:5"
+          {/* Offset tomato frame behind the photo: depth without shadows or effects. */}
+          <div aria-hidden className="absolute -right-4 top-6 -bottom-6 left-8 border-2 border-accent sm:-right-6 lg:-right-10" />
+          <Photo
+            photo={photos.hero}
             aspect="aspect-[4/5]"
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            preload
             className="relative bg-background"
           />
         </div>

@@ -16,17 +16,17 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: 80,
-          background: "#f7f1e6",
-          color: "#1f1a15",
+          background: "#15110d",
+          color: "#f3eadb",
           fontFamily: "serif",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: 6, textTransform: "uppercase", color: "#5e5347" }}>
+        <div style={{ fontSize: 28, letterSpacing: 6, textTransform: "uppercase", color: "#b5a790" }}>
           {`Paninoteca & focacceria · ${site.contact.city}`}
         </div>
         <div style={{ display: "flex", fontSize: 200, fontStyle: "italic", fontWeight: 700, lineHeight: 1 }}>
           {site.name}
-          <span style={{ color: "#b3311c" }}>.</span>
+          <span style={{ color: "#e8573b" }}>.</span>
         </div>
         <div style={{ fontSize: 44 }}>Pan de verdad, relleno sin miedo.</div>
       </div>

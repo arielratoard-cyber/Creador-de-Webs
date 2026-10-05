@@ -7,15 +7,16 @@
  * font-display, font-sans, rounded-ui…
  */
 @theme {
-  /* Crema de harina, corteza tostada y rojo pomodoro */
-  --color-background: #f7f1e6;
-  --color-surface: #eee3cf;
-  --color-foreground: #1f1a15;
-  --color-muted: #5e5347;
-  --color-line: #dccdb3;
-  --color-accent: #b3311c;
-  --color-accent-foreground: #fffaf2;
-  --color-crust: #c98a3c;
+  /* Modo oscuro: horno de leña, crema de harina y rojo pomodoro (todo AA) */
+  --color-background: #15110d;
+  --color-surface: #1e1914;
+  --color-deep: #0d0b09;
+  --color-foreground: #f3eadb;
+  --color-muted: #b5a790;
+  --color-line: #342c24;
+  --color-accent: #e8573b;
+  --color-accent-foreground: #15110d;
+  --color-crust: #e3a656;
 
   --radius-ui: 0.25rem;
 
@@ -30,6 +31,7 @@
 
 @layer base {
   html {
+    color-scheme: dark;
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
   }
