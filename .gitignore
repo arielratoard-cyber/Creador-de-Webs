@@ -1,0 +1,7 @@
+node_modules/
+.next/
+out/
+.visual-check/
+.env*
+!.env.example
+.DS_Store
