@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. Change VALUES per project (see DESIGN.md); keep the names so
+ * every component keeps working. Utilities generated: bg-background, bg-surface,
+ * text-foreground, text-muted, border-line, bg-accent, text-accent-foreground,
+ * font-display, font-sans, rounded-ui…
+ */
+@theme {
+  /* Crema de harina, corteza tostada y rojo pomodoro */
+  --color-background: #f7f1e6;
+  --color-surface: #eee3cf;
+  --color-foreground: #1f1a15;
+  --color-muted: #5e5347;
+  --color-line: #dccdb3;
+  --color-accent: #b3311c;
+  --color-accent-foreground: #fffaf2;
+  --color-crust: #c98a3c;
+
+  --radius-ui: 0.25rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Fonts come from next/font variables set on <html> in layout.tsx */
+@theme inline {
+  --font-sans: var(--font-sans-family), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-family), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Leave room for the sticky navbar when jumping to #anchors */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+
+  ::selection {
+    @apply bg-accent text-accent-foreground;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
