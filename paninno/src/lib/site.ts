@@ -66,32 +66,38 @@ export type Photo = {
   credit?: string;
 };
 
-// TODO: add the photos (own photos or public-domain/CC0) and fill `src`.
+// Fotos CC0 / dominio público de Wikimedia Commons (no requieren atribución), guardadas en /public/images.
+// TODO: sustituir por fotos propias del local cuando las haya.
 export const photos = {
   hero: {
-    src: "",
-    alt: "Panino de mortadela con pistacho y stracciatella, abierto sobre papel",
+    // commons.wikimedia.org/wiki/File:Italian_Sandwich_(Unsplash).jpg — Eaters Collective, CC0
+    src: "/images/hero-panino.jpg",
+    alt: "Panino de embutidos italianos, mozzarella y espinacas en pan crujiente, cortado por la mitad",
     brief: "Panino estrella abierto, mortadela y pistacho, luz cálida, vertical 4:5",
   },
   focaccia: {
-    src: "",
-    alt: "Bandeja de focaccia genovesa recién horneada con romero",
+    // commons.wikimedia.org/wiki/File:Focaccia_salée_à_Focaccia_(Part-Dieu)_à_Lyon.jpg — Benoît Prieur, CC0
+    src: "/images/focaccia-prosciutto.jpg",
+    alt: "Porción de focaccia alta con prosciutto, rúcula, parmesano y tomate seco",
     brief: "Bandeja de focaccia recién salida del horno, con romero, horizontal 3:2",
   },
   counter: {
-    src: "",
-    alt: "Mostrador de Paninno con focacce y embutidos italianos",
+    // commons.wikimedia.org/wiki/File:Focaccia_sandwiches_for_sale_on_the_counter_of_Fabio's_2026-02-12.jpg — Andy Li, CC0
+    src: "/images/mostrador-focaccia.jpg",
+    alt: "Panini de focaccia sobre un mostrador de madera con pizarras de precios",
     brief: "Mostrador con focacce y embutidos colgados, horizontal",
   },
-  slicing: {
-    src: "",
-    alt: "Manos cortando mortadela en lonchas finas",
-    brief: "Manos cortando mortadela, horizontal 4:3",
+  deli: {
+    // commons.wikimedia.org/wiki/File:Prepared_food_display_in_an_Italian_deli_in_Rome.jpg — Wilfredor, CC0
+    src: "/images/vitrina-gastronomia.jpg",
+    alt: "Vitrina de una gastronomía italiana en Roma con bandejas de platos preparados",
+    brief: "Vitrina de embutidos y platos italianos, horizontal 4:3",
   },
-  bar: {
-    src: "",
-    alt: "Clientes comiendo panini en la barra",
-    brief: "Clientes en la barra o terraza, horizontal 4:3",
+  interior: {
+    // commons.wikimedia.org/wiki/File:Interior_of_Erio_restaurant_(Vallecrosia).jpg — Tangopaso, dominio público
+    src: "/images/sala-trattoria.jpg",
+    alt: "Sala de una trattoria italiana con manteles de cuadros rojos, lámparas y cuadros en las paredes",
+    brief: "Ambiente de local italiano, horizontal 4:3",
   },
 } satisfies Record<string, Photo>;
 

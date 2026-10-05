@@ -14,13 +14,13 @@ export function Gallery() {
           className="sm:col-span-2 lg:col-span-7 lg:row-span-2"
         />
         <Photo
-          photo={photos.slicing}
+          photo={photos.deli}
           aspect="aspect-[4/3]"
           sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
           className="lg:col-span-5"
         />
         <Photo
-          photo={photos.bar}
+          photo={photos.interior}
           aspect="aspect-[4/3]"
           sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
           className="lg:col-span-5"
